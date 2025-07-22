@@ -1,0 +1,5 @@
+# CODEOWNERS file for automatic PR assignment
+
+Format: path @github-username or @org/team
+
+* @broadsage/developers
