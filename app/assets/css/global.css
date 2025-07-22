@@ -1,0 +1,85 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+:target {
+	scroll-margin-top: var(--space-40);
+}
+
+body {
+	margin: 0;
+	font-family: var(--family-body);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-base);
+	-webkit-font-smoothing: antialiased;
+	font-weight: 500;
+}
+
+::selection {
+	background-color: color-mix(in srgb, transparent, var(--primary) 10%);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+textarea,
+button,
+select {
+	font: inherit;
+}
+
+p {
+	font-weight: 500;
+	margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+	margin: 0;
+	font-weight: 600;
+}
+
+pre,
+code {
+	font-family: var(--family-code);
+}
+
+a {
+	color: var(--primary);
+}
+
+a:not(:disabled):hover {
+	cursor: pointer;
+}
+
+button {
+	all: unset;
+	line-height: 0;
+}
+
+button:focus {
+	outline: revert;
+}
+
+.v-popper__inner {
+	font-size: var(--font-size-sm);
+	line-height: var(--line-height-sm);
+}

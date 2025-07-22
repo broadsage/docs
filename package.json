@@ -32,6 +32,7 @@
     "vue-tsc": "^2.2.10",
     "prettier": "3.6.2",
     "sass": "1.89.2",
+    "shiki": "3.8.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-prettier": "5.5.3",
     "eslint-plugin-vue": "10.3.0"

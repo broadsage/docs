@@ -2,68 +2,68 @@
 version: 2
 updates:
   # Enable version updates for GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "daily"
+      interval: 'daily'
     open-pull-requests-limit: 5
     labels:
-      - "dependencies"
-      - "security"
+      - 'dependencies'
+      - 'security'
     commit-message:
-      prefix: "chore"
-      include: "scope"
+      prefix: 'chore'
+      include: 'scope'
     groups:
       actions:
         patterns:
-          - "*"
+          - '*'
     allow:
-      - dependency-type: "all"
-    rebase-strategy: "auto"
+      - dependency-type: 'all'
+    rebase-strategy: 'auto'
     ignore:
-      - dependency-name: "actions/setup-node"
-        update-types: ["version-update:semver-major"]
+      - dependency-name: 'actions/setup-node'
+        update-types: ['version-update:semver-major']
     assignees:
       - broadsage/developers
     reviewers:
       - broadsage/developers
     versioning-strategy: increase
   # Enable version updates for npm (pnpm)
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     open-pull-requests-limit: 5
     labels:
-      - "dependencies"
+      - 'dependencies'
     commit-message:
-      prefix: "chore"
+      prefix: 'chore'
     groups:
       tailwind:
         patterns:
-          - "tailwindcss"
-          - "autoprefixer"
-          - "postcss"
+          - 'tailwindcss'
+          - 'autoprefixer'
+          - 'postcss'
       nuxt:
         patterns:
-          - "nuxt"
-          - "@nuxt/*"
+          - 'nuxt'
+          - '@nuxt/*'
       vue:
         patterns:
-          - "vue*"
+          - 'vue*'
       linting:
         patterns:
-          - "eslint*"
-          - "prettier*"
+          - 'eslint*'
+          - 'prettier*'
       typescript:
         patterns:
-          - "typescript"
+          - 'typescript'
     allow:
-      - dependency-type: "all"
-    rebase-strategy: "auto"
+      - dependency-type: 'all'
+    rebase-strategy: 'auto'
     ignore:
-      - dependency-name: "nuxt"
-        update-types: ["version-update:semver-major"]
+      - dependency-name: 'nuxt'
+        update-types: ['version-update:semver-major']
     assignees:
       - broadsage/developers
     reviewers:
