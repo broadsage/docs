@@ -1,0 +1,29 @@
+name: Typecheck
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: typecheck-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_OPTIONS: --max_old_space_size=6144
+
+jobs:
+  typecheck:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Node Prepare Job
+        uses: ./.github/actions/node-prepare/action.yaml
+        with:
+          job-name: Typecheck
+          run-script: typecheck
+          artifact-name: typecheck-results
+          artifact-path: .typecheck* .pnpm-debug.log

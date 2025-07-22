@@ -1,0 +1,10 @@
+{
+  "gitlens.currentLine.enabled": false,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.hovers.enabled": false,
+  "gitlens.statusBar.enabled": false,
+  "gitlens.blame.line.enabled": false,
+  "gitlens.blame.annotation.enabled": false,
+  "gitlens.showCommitAuthor": false,
+  "gitlens.showCommitDate": false
+}

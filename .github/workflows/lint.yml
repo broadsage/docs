@@ -1,0 +1,22 @@
+name: Lint
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Node Prepare Job
+        uses: ./.github/actions/node-prepare/action.yaml
+        with:
+          job-name: Lint
+          run-script: lint
+          artifact-name: lint-results
+          artifact-path: .eslint* .pnpm-debug.log
