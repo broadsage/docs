@@ -28,5 +28,3 @@ jobs:
         with:
           job-name: Typecheck
           run-script: typecheck
-          artifact-name: typecheck-results
-          artifact-path: .typecheck* .pnpm-debug.log

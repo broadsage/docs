@@ -56,9 +56,3 @@ runs:
         cat .${{ inputs.run-script }}* || echo "No summary file found."
       shell: bash
       
-    - name: Upload results
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: ${{ inputs.artifact-name != '' && inputs.artifact-name || inputs.run-script }}-results
-        path: ${{ inputs.artifact-path != '' && inputs.artifact-path || format('.{0}* .pnpm-debug.log', inputs.run-script) }}

@@ -28,5 +28,3 @@ jobs:
         with:
           job-name: Lint
           run-script: lint
-          artifact-name: lint-results
-          artifact-path: .eslint* .pnpm-debug.log
