@@ -1,0 +1,73 @@
+name: Stale Issue and PR Management
+
+# Triggers: manual or scheduled (daily)
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 1 * * *'
+
+# Restrict permissions to least privilege
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  stale-issues:
+    name: Mark stale issues
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.repository == 'broadsage/website'
+    steps:
+      - name: Run stale action for issues
+        uses: actions/stale@v9.1.0
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          operations-per-run: 300
+          debug-only: false
+          ascending: false
+          exempt-draft-pr: true
+          exempt-assignees: ''
+          exempt-milestones: ''
+          exempt-all-milestones: false
+          exempt-all-assignees: false
+          remove-stale-when-updated: false
+          ignore-updates: true
+          days-before-stale: -1 # Never mark as stale automatically
+          days-before-close: 7
+          stale-issue-label: 'needs reproduction'
+          only-labels: 'needs reproduction'
+          close-issue-label: closed-by-bot
+          close-issue-message: |
+            This issue was closed because it was open for 7 days without a reproduction. If you believe this was a mistake, please provide a minimal reproduction and reopen.
+          # slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Log stale run summary
+        run: echo "Stale workflow completed for issues."
+
+  stale-prs:
+    name: Mark stale PRs
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.repository == 'broadsage/website'
+    steps:
+      - name: Run stale action for PRs
+        uses: actions/stale@v9.1.0
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          operations-per-run: 300
+          debug-only: false
+          ascending: false
+          exempt-draft-pr: true
+          exempt-assignees: ''
+          exempt-milestones: ''
+          exempt-all-milestones: false
+          exempt-all-assignees: false
+          remove-stale-when-updated: false
+          ignore-updates: true
+          days-before-stale: -1 # Never mark as stale automatically
+          days-before-close: 7
+          stale-pr-label: 'needs reproduction'
+          only-pr-labels: 'needs reproduction'
+          close-pr-label: closed-by-bot
+          close-pr-message: |
+            This pull request was closed because it was open for 7 days without a reproduction or required information. If you believe this was a mistake, please update and reopen.
+          # slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Log stale run summary
+        run: echo "Stale workflow completed for PRs."
