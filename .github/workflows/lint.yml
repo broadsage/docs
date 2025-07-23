@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Node Prepare Job
-        uses: ./.github/actions/node-prepare/action.yml
+        uses: ./.github/actions/node-prepare
         with:
           job-name: Lint
           run-script: lint
