@@ -11,7 +11,15 @@
     "lint": "eslint . --cache",
     "format": "prettier --write \"**/*.{md,y?(a)ml,json,vue,ts}\"",
     "analyze": "nuxt analyze",
-    "typecheck": "nuxt typecheck"
+    "typecheck": "nuxt typecheck",
+    "add:component": "nuxt add component",
+    "add:composable": "nuxt add composable",
+    "add:layout": "nuxt add layout",
+    "add:plugin": "nuxt add plugin",
+    "add:page": "nuxt add page",
+    "add:middleware": "nuxt add middleware",
+    "add:api": "nuxt add api",
+    "add:layer": "nuxt add layer"
   },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.54",
